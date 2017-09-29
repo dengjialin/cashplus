@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zeq-V8-SUr">
+                                <rect key="frame" x="112.5" y="132.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zeq-V8-SUr" secondAttribute="height" multiplier="1:1" id="5fa-OW-tfu"/>
+                                    <constraint firstAttribute="width" constant="150" id="hbL-ck-7qk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="极速花" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQp-W0-lN0">
+                                <rect key="frame" x="155.5" y="290.5" width="64.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.48646342754364014" blue="0.091255448758602142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为普通大众提供普惠信用服务" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI5-48-jPu">
+                                <rect key="frame" x="81.5" y="324" width="212.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.9991651177406311" green="0.68603390455245972" blue="0.094477392733097076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MQp-W0-lN0" firstAttribute="top" secondItem="Zeq-V8-SUr" secondAttribute="bottom" constant="8" symbolic="YES" id="7d7-Dc-6Yp"/>
+                            <constraint firstItem="rI5-48-jPu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D3G-e5-JCo"/>
+                            <constraint firstItem="rI5-48-jPu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="SkZ-7w-M02"/>
+                            <constraint firstItem="rI5-48-jPu" firstAttribute="centerX" secondItem="MQp-W0-lN0" secondAttribute="centerX" id="eEi-x6-aUK"/>
+                            <constraint firstItem="MQp-W0-lN0" firstAttribute="centerX" secondItem="Zeq-V8-SUr" secondAttribute="centerX" id="lDZ-dR-MKl"/>
+                            <constraint firstItem="rI5-48-jPu" firstAttribute="top" secondItem="MQp-W0-lN0" secondAttribute="bottom" constant="8" symbolic="YES" id="wKW-gI-sg5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="530" height="530"/>
+    </resources>
+</document>
