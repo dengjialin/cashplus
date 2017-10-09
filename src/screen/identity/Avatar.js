@@ -80,7 +80,7 @@ class Avatar extends React.Component {
                             onCancel={()=>this.setState({modalVisible:false})}
                         />
                     </Modal>
-                    <Button  style={{margin:10}} type="primary" disabled={!formValidate} onClick={()=>{this.props.avatar.submit().then((res)=>res&&navigate('UserSetting'))}}>提交审核</Button>
+                    <Button  style={{margin:10}} type="primary"  onClick={()=>{this.props.avatar.submit().then((res)=>res&&navigate('UserSetting'))}}>提交审核</Button>
                 </ScrollView>
             </View>
         );
@@ -125,23 +125,12 @@ class Avatar extends React.Component {
             else {
                 // You can also display the image using data:
                 // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-                let file = {
-                    uri:response.uri,
-                    type:'multipart/form-data',
-                    name:response.name
-                }
                 if(type==='1'){ //持证自拍
                     this.props.avatar.idSelf.url = response.uri
-                    this.props.avatar.uploadImg({
-                        file:file,
-                        type:'idSelf'
-                    })
+                    this.props.avatar.idSelf.fileName = response.fileName
                 }else if(type==='2'){
                     this.props.avatar.idFront.url = response.uri
-                    this.props.avatar.uploadImg({
-                        file:file,
-                        type:'idFront'
-                    })
+                    this.props.avatar.idFront.fileName = response.fileName
                 }
             }
         })

@@ -1,6 +1,6 @@
 import {observable, action,reaction,runInAction} from 'mobx'
 import {login,getValidateCode,getUserCertStatus,getUserBindBankCard,changeBindCard,addNewBankCard
-        ,getPhoneValidateUrl,submitCert
+        ,getPhoneValidateUrl,submitCert,getUserAvatar
 } from '../service/user/user.base.service'
 import app from '../common/HttpTools'
 class User{
@@ -83,6 +83,14 @@ class User{
             }
         }
         return false
+    }
+    async judgeShowAvatar(){
+        let res = await getUserAvatar();
+        if(res.success&&typeof res.result==='string'){ //不能查看
+            app.sendMessage(res.result)
+            return false
+        }
+        return true
     }
 }
 export default new User()

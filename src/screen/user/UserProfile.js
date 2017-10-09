@@ -67,8 +67,8 @@ class UserProfile extends Component {
                         <Item name="我的信息" onPress={() => navigate('UserSetting')}/>
                         <Item name="立即拿钱" onPress={() => this._gotoApply()}/>
                         <Text style={styles.title}>{"精彩内容"}</Text>
-                        <Item name="关于我们" icon="mobile" color={'red'} subName="极速花"/>
-                        <Item name="更多产品" icon="apple" onPress={() => {
+                        <Item name="关于我们" icon="info" color={'red'} subName="极速花"/>
+                        <Item name="更多产品" icon="star" onPress={() => {
                             navigate('MoreProducts')
                         }}/>
                     </ScrollView>
@@ -79,7 +79,7 @@ class UserProfile extends Component {
     _gotoApply(){
         this.props.loan.getLoanStatus().then((res)=>{
             let status = res.loan.status;
-            if(status&&!['REJECTED',''].includes(status)){
+            if(status&&!['REJECTED','FULLY_PAY_OFF','CANCELED',''].includes(status)){
                 App.sendMessage('您已有借款,请完成还款后再次申请')
             }else {
                 this.props.navigation.navigate('LoanApply',{from:'UserProfile'})

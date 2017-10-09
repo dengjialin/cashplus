@@ -7,7 +7,6 @@ import {Button} from 'antd-mobile'
 import app from '../../common/HttpTools'
 class UserSetting extends Component{
     componentDidMount(){
-
         this.props.user.getUserCert();
     }
     render(){
@@ -27,7 +26,7 @@ class UserSetting extends Component{
                 />
                     <ScrollView>
                         <Text style={styles.title}>{"认证信息"}</Text>
-                        <Item name="身份信息" subName={certArr[0]} onPress={() => navigate('Avatar')}/>
+                        <Item name="身份信息" subName={certArr[0]} onPress={this._onClickAvatar.bind(this)}/>
                         <Item name="个人信息" subName={certArr[1]} onPress={() => navigate('Personal')}/>
                         <Item name="手机认证" subName={certArr[2]} onPress={() => navigate('PhoneValidate')}/>
                         <Button  style={{margin:10}} type="primary"  onClick={()=>{this.props.user.submitUserCert().then((res)=>res&&navigate('Loan'))}}>提交审核</Button>
@@ -35,7 +34,9 @@ class UserSetting extends Component{
             </View>
         )
     }
-
+    _onClickAvatar(){
+        this.props.user.judgeShowAvatar().then((res)=>res&&this.props.navigation.navigate('Avatar'))
+    }
 }
 export default inject('user')(observer(UserSetting))
 const styles = StyleSheet.create({

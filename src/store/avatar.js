@@ -1,5 +1,4 @@
 import {observable, action, reaction, runInAction} from 'mobx'
-import validator from 'validator'
 import {getUserAvatar,uploadUserImg,submitUserAvatar} from '../service/user/user.base.service'
 import app from '../common/HttpTools'
 class Avatar {
@@ -55,19 +54,38 @@ class Avatar {
         if(!this.data.nameAndIdCardCanEdit||!this.data.photoCanEdit){
             return app.sendMessage('不允许修改')
         }
-        if(this.idSelf.id===undefined||this.idFront.id===undefined){
+        if(this.idSelf.url===''||this.idFront.url===''){
             return app.sendMessage('请上传图片')
         }
-        let data = {
-            name: this.form.name.value,
-            idNumber: this.form.idCard.value,
-            idSelf: this.idSelf.id,
-            idFront: this.idFront.id
-        }
-        let res = await submitUserAvatar(data)
-        if(res.success){
-            return true
-        }
+        let img1 = {
+            file:{
+                type:'multipart/form-data',
+                uri:this.idSelf.url,
+                name:this.idSelf.fileName
+            },
+            type:'idSelf'
+        };
+        let img2 = {
+            file:{
+                type:'multipart/form-data',
+                uri:this.idFront.url,
+                name:this.idFront.fileName
+            },
+            type:'idFront'
+        };
+        return Promise.all([this.uploadImg(img1),this.uploadImg(img2)]).then(async ()=>{
+            let data = {
+                name: this.form.name.value,
+                idNumber: this.form.idCard.value,
+                idSelf: this.idSelf.id,
+                idFront: this.idFront.id
+            };
+            let res = await submitUserAvatar(data)
+            if(res.success){
+                app.sendMessage('提交个人信息成功')
+                return true
+            }
+        })
     }
     async uploadImg(data){
         const {type} = data
