@@ -1,4 +1,4 @@
-import {get,post} from '../../common/HttpTools'
+import {get,post,upload} from '../../common/HttpTools'
 const login = function (data) { //登录注册(一步)
     return post({
         url:'/user/public/login',
@@ -24,6 +24,12 @@ const getUserDetail = function () { //获取个人信息
 const getUserAvatar = function () { //获取个人信息(证件照)
     return post({
         url:'/user/info/basic'
+    })
+}
+const submitUserAvatar = function (data) {
+    return post({
+        url:'/user/info/basic',
+        data
     })
 }
 const getUserCertStatus = function () { //获取个人验证信息
@@ -65,7 +71,13 @@ const addNewBankCard = function (data) { //添加新的银行卡
         data:data
     })
 }
+const uploadUserImg = function (data) { //上传图片
+    return upload({
+        url:'/user/info/photo',
+        data:data
+    })
+}
 export {
     login,getValidateCode,getUserCertStatus,getUserDetail,submitUserContact,submitUserDetail,getUserBindBankCard,submitCert,
-    changeBindCard,addNewBankCard,getPhoneValidateUrl,getUserAvatar
+    changeBindCard,addNewBankCard,getPhoneValidateUrl,getUserAvatar,uploadUserImg,submitUserAvatar
 }

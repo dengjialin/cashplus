@@ -14,8 +14,6 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* cashplusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cashplusTests.m */; };
 		12347ABD1F7CE48200EE34E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12347ABC1F7CE48200EE34E0 /* LaunchScreen.storyboard */; };
-		12347ABF1F7CEE9600EE34E0 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 12347ABE1F7CEE9600EE34E0 /* assets */; };
-		12347AC11F7CEEA300EE34E0 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 12347AC01F7CEEA300EE34E0 /* index.ios.jsbundle */; };
 		126205721F7CBF590098F41F /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 126205671F7CBF590098F41F /* Entypo.ttf */; };
 		126205731F7CBF590098F41F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 126205681F7CBF590098F41F /* EvilIcons.ttf */; };
 		126205741F7CBF590098F41F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 126205691F7CBF590098F41F /* Feather.ttf */; };
@@ -27,6 +25,8 @@
 		1262057A1F7CBF590098F41F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1262056F1F7CBF590098F41F /* Octicons.ttf */; };
 		1262057B1F7CBF590098F41F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 126205701F7CBF590098F41F /* SimpleLineIcons.ttf */; };
 		1262057C1F7CBF590098F41F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 126205711F7CBF590098F41F /* Zocial.ttf */; };
+		12940E921F7E5096005099A9 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 12940E911F7E5096005099A9 /* assets */; };
+		12940E941F7E509F005099A9 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 12940E931F7E509F005099A9 /* index.ios.jsbundle */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -270,8 +270,6 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* cashplusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cashplusTests.m; sourceTree = "<group>"; };
 		12347ABC1F7CE48200EE34E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		12347ABE1F7CEE9600EE34E0 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		12347AC01F7CEEA300EE34E0 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
 		126205671F7CBF590098F41F /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		126205681F7CBF590098F41F /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		126205691F7CBF590098F41F /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -283,6 +281,8 @@
 		1262056F1F7CBF590098F41F /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		126205701F7CBF590098F41F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		126205711F7CBF590098F41F /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		12940E911F7E5096005099A9 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		12940E931F7E509F005099A9 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* cashplus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cashplus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,8 +471,8 @@
 		13B07FAE1A68108700A75B9A /* cashplus */ = {
 			isa = PBXGroup;
 			children = (
-				12347AC01F7CEEA300EE34E0 /* index.ios.jsbundle */,
-				12347ABE1F7CEE9600EE34E0 /* assets */,
+				12940E931F7E509F005099A9 /* index.ios.jsbundle */,
+				12940E911F7E5096005099A9 /* assets */,
 				12347ABC1F7CE48200EE34E0 /* LaunchScreen.storyboard */,
 				126205661F7CBF590098F41F /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -955,14 +955,14 @@
 				1262057A1F7CBF590098F41F /* Octicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				126205761F7CBF590098F41F /* Foundation.ttf in Resources */,
-				12347AC11F7CEEA300EE34E0 /* index.ios.jsbundle in Resources */,
+				12940E941F7E509F005099A9 /* index.ios.jsbundle in Resources */,
 				126205791F7CBF590098F41F /* MaterialIcons.ttf in Resources */,
 				1262057C1F7CBF590098F41F /* Zocial.ttf in Resources */,
 				126205771F7CBF590098F41F /* Ionicons.ttf in Resources */,
 				1262057B1F7CBF590098F41F /* SimpleLineIcons.ttf in Resources */,
 				126205731F7CBF590098F41F /* EvilIcons.ttf in Resources */,
 				126205741F7CBF590098F41F /* Feather.ttf in Resources */,
-				12347ABF1F7CEE9600EE34E0 /* assets in Resources */,
+				12940E921F7E5096005099A9 /* assets in Resources */,
 				126205721F7CBF590098F41F /* Entypo.ttf in Resources */,
 				12347ABD1F7CE48200EE34E0 /* LaunchScreen.storyboard in Resources */,
 				126205781F7CBF590098F41F /* MaterialCommunityIcons.ttf in Resources */,

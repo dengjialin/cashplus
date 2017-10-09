@@ -22,7 +22,7 @@ export default  SimpleApp = StackNavigator({
     UserSetting:{
         screen:UserSetting
     },
-    avatar:{
+    Avatar:{
         screen:avatar
     },
     Relation:{

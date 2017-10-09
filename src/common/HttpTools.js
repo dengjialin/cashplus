@@ -176,12 +176,14 @@ const App = {
         }
         request.url = full_url;
         // build body data
-        if (httpMethod === 'UPLOAD') {
+        if (httpMethod === 'UPLOAD') { //上传图片
             let formData = new FormData();
             for (let k in options.data) {
                 formData.append(k, options.data[k]);
             }
+            request.method = 'POST'
             request.body = formData;
+            request.headers['Content-Type'] = 'multipart/form-data;charset=utf-8';
         }else if(httpMethod==='POST'){
             request.body = JSON.stringify(options['data'])
         }
@@ -230,20 +232,31 @@ const App = {
                         if (res&&res.code) {
                             if(res.code != 0){
                                 self.handelErrcode(res);
-                            }else {
+                                resolve({
+                                    ...res,
+                                    success:false
+                                })
+                                return
+                            }else { //成功
                                 if(httpMethod==='GET'&&(!self.config.refreshApi.includes(url))){ //缓存
                                     res['expiredTime'] = Date.now();
                                     AsyncStorage.setItem(url,JSON.stringify(res))
                                 }
+                                resolve({
+                                    ...res,
+                                    success:true,
+                                })
+                                return
                             }
                         }
                         resolve({
                             ...res,
-                            success:true,
+                            success: true,
                         })
                     })
                     .catch((error) => {
                         self.sendMessage('网络错误501')
+                        reject()
                         console.warn(error);
                     });
             })
@@ -320,5 +333,11 @@ const post = ({url,data={},timeout}) => {
         data:data
     },timeout)
 }
-export { get,post,NetInfoDecorator}
+const upload = ({url,data={}}) =>{
+    return App.send(url,{
+        method:'UPLOAD',
+        data:data
+    })
+}
+export { get,post,NetInfoDecorator,upload}
 export default  App;
