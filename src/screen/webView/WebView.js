@@ -77,7 +77,8 @@ class LoanProtocol extends Component {
                 <WebView
                     style={styles.webView}
                     source={
-                        {url:`http://test.cashpp.com/index.html#/protocol/loan/${id}`,
+                        {
+                            url:`http://test.cashpp.com/index.html#/protocol/loan/${id}`,
                             headers: {
                                 'Cookie':cookie,
                                 'Content-Type': 'application/json;charset=UTF-8',

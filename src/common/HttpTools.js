@@ -1,8 +1,9 @@
-import {BaseUrl} from './GlobalConfig'
 import React, {Component} from 'react'
 import {Modal,Toast} from 'antd-mobile'
-import {NetInfo,AsyncStorage,Alert,DeviceEventEmitter} from 'react-native'
+import {NetInfo,AsyncStorage,Alert} from 'react-native'
 import DeviceInfo from 'react-native-device-info'
+import {BaseUrl} from './GlobalConfig'
+import {navigate} from './Navigation'
 const alert = Modal.alert;
 const NetInfoDecorator = WrappedComponent => class extends Component {
     constructor(props) {
@@ -24,7 +25,10 @@ const NetInfoDecorator = WrappedComponent => class extends Component {
 }
 const delay = timeout => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => resolve({code:-2,msg:'请求超时'}), timeout * 1000)
+        setTimeout(() => {
+            Toast.hide();
+            resolve({code:-2,msg:'请求超时'})
+        }, timeout * 1000)
     })
 }
 let currentRequest = {};
@@ -143,6 +147,7 @@ const App = {
 
     // core ajax handler
     async send(url, options,timeout) {
+        Toast.loading('加载中',0)
         let self = this;
         let token = null;
         let tokenStr = await this.getAccessToken(); //这里token是字符串
@@ -221,7 +226,7 @@ const App = {
                             return response.json()
                         }else if(response.status===401||response.status===403){ //登录过期
                             self.setLoginToken('')
-                            DeviceEventEmitter.emit('login')
+                            navigate('UserRegister')
                             return {code:-1,msg:'需要登录',needLogin:true}
                         }else {
                             return response.json() //其他错误,带有code和msg,错误提示
@@ -229,6 +234,7 @@ const App = {
                     })
                     .then((res) => {
                         self.config.debug && console.log(res);
+                        Toast.hide();
                         if (res&&res.code) {
                             if(res.code != 0){
                                 self.handelErrcode(res);
@@ -255,6 +261,7 @@ const App = {
                         })
                     })
                     .catch((error) => {
+                        Toast.hide();
                         self.sendMessage('网络错误501')
                         reject()
                         console.warn(error);

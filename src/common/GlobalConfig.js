@@ -1,5 +1,5 @@
-import {Dimensions,PixelRatio} from 'react-native'
-const BaseUrl = 'http://test.cashpp.com/rest'
+import {Dimensions,PixelRatio,Platform} from 'react-native'
+const BaseUrl = 'https://tt.cashday.cn/rest'
 const CLIENTWIDTH = Dimensions.get('window').width
 const CLIENTHEIGHT = Dimensions.get('window').height
 const CommonPageStyle = {
@@ -10,7 +10,8 @@ window.rnScreen = {
     onePix: 1 / PixelRatio.get(),
     width:Dimensions.get('window').width,
     height:Dimensions.get('window').height,
-    primaryColor:'#0398ff'
+    primaryColor:'#0398ff',
+    isIOS:Platform.OS==='ios'
 }
 export {
     BaseUrl,CLIENTHEIGHT,CLIENTWIDTH,CommonPageStyle

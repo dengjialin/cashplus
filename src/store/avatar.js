@@ -26,7 +26,7 @@ class Avatar {
         url:''
     }
     async getAvatarInfo() {
-        const res = await getUserAvatar();
+        const res = await getUserAvatar();x
         if(res.result){
             let result = res.result;
             this.data.nameAndIdCardCanEdit = result.nameAndIdCardCanEdit === undefined ? true : result.nameAndIdCardCanEdit;

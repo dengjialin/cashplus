@@ -17,3 +17,10 @@ export default  SimpleApp = StackNavigator({
     headerMode: 'none',
     mode: 'modal'
 })
+var navigator = null;
+export const setNavigator = function (nav) {
+    navigator = nav
+}
+export const navigate = function (name,params) {
+    navigator&&navigator.navigate(name,params)
+}

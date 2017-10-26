@@ -67,7 +67,9 @@ class UserProfile extends Component {
                         <Item name="我的信息" onPress={() => navigate('UserSetting')}/>
                         <Item name="立即拿钱" onPress={() => this._gotoApply()}/>
                         <Text style={styles.title}>{"精彩内容"}</Text>
-                        <Item name="关于我们" icon="info" color={'red'} subName="极速花"/>
+                        <Item name="关于我们" icon="info" color={'red'} subName="极速花" onPress={()=>navigate('LoanProtocol',{
+                            loanId:'LO-672-1'
+                        })}/>
                         <Item name="更多产品" icon="star" onPress={() => {
                             navigate('MoreProducts')
                         }}/>

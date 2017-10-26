@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {observer} from 'mobx-react'
 import {inject} from '../../store/index'
-import {StyleSheet,View, Animated, Dimensions, Text,TouchableOpacity,DeviceEventEmitter} from 'react-native';
+import {StyleSheet,View, Animated, Dimensions, Text,TouchableOpacity} from 'react-native';
 import { Popup,} from 'antd-mobile';
 import {IRefreshScrollView, ICard, NavBar, PopupContent} from '../../component/index'
+import {setNavigator} from '../../common/Navigation'
 @inject('home')
 @observer
 class LoanApply extends Component {
@@ -22,15 +23,7 @@ class LoanApply extends Component {
         this.props.home.init()
     }
     componentWillMount(){
-        this.subscription = DeviceEventEmitter.addListener('login',()=>{
-            if(this.canNavigate){ //只会导航一次
-                this.props.navigation.navigate('UserRegister')
-                this.canNavigate = false;
-            }
-        })
-    }
-    componentWillUnmount(){
-        this.subscription.remove()
+        setNavigator(this.props.navigation)
     }
     render() {
         const {home, navigation} = this.props
