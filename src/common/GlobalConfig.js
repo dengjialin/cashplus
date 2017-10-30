@@ -1,5 +1,5 @@
 import {Dimensions,PixelRatio,Platform} from 'react-native'
-const BaseUrl = 'https://tt.cashday.cn/rest'
+const BaseUrl = 'http://test.cashpp.com/rest'
 const CLIENTWIDTH = Dimensions.get('window').width
 const CLIENTHEIGHT = Dimensions.get('window').height
 const CommonPageStyle = {

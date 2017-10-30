@@ -146,8 +146,11 @@ const App = {
     },
 
     // core ajax handler
-    async send(url, options,timeout) {
-        Toast.loading('加载中',0)
+    async send(url, options,config={}) {
+        const {timeout,showHud=true} = config;
+        if(showHud){
+            Toast.loading('加载中',0)
+        }
         let self = this;
         let token = null;
         let tokenStr = await this.getAccessToken(); //这里token是字符串
@@ -328,17 +331,21 @@ const App = {
         }
     }
 };
-const get = ({url, params = {}, timeout}) => {
+const get = ({url, params = {}, timeout,showHud}) => {
     return App.send(url,{
         method:'GET',
         data:params
-    },timeout)
+    },{
+        showHud,timeout
+    })
 }
-const post = ({url,data={},timeout}) => {
+const post = ({url,data={},timeout,showHud}) => {
     return App.send(url,{
         method:'POST',
         data:data
-    },timeout)
+    },{
+        timeout,showHud
+    })
 }
 const upload = ({url,data={}}) =>{
     return App.send(url,{

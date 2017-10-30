@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
 import {observer} from 'mobx-react'
 import {inject} from '../../store/index'
-import {StyleSheet,View, Animated, Dimensions, Text,TouchableOpacity} from 'react-native';
+import {StyleSheet,View, Animated, Dimensions,NativeModules} from 'react-native';
 import { Popup,} from 'antd-mobile';
 import {IRefreshScrollView, ICard, NavBar, PopupContent} from '../../component/index'
 import {setNavigator} from '../../common/Navigation'
+const YSY = NativeModules['YsyNativeModule'];
+YSY.test();
 @inject('home')
 @observer
 class LoanApply extends Component {
