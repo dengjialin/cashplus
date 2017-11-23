@@ -19,7 +19,8 @@ const getLoanStatus = function () {
 }
 const getLoanRecords = function () {
     return get({
-        url:'/loan/transaction/record'
+        url:'/loan/transaction/record',
+        showHud:false
     })
 }
 const loanApproveNext = function () {

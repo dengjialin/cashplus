@@ -5,8 +5,6 @@ import {StyleSheet,View, Animated, Dimensions,NativeModules} from 'react-native'
 import { Popup,} from 'antd-mobile';
 import {IRefreshScrollView, ICard, NavBar, PopupContent} from '../../component/index'
 import {setNavigator} from '../../common/Navigation'
-const YSY = NativeModules['YsyNativeModule'];
-YSY.test();
 @inject('home')
 @observer
 class LoanApply extends Component {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StackNavigator} from 'react-navigation';
+import Test from '../screen/Test'
 import Home from '../screen/Home'
 import UserSetting from '../screen/user/UserSetting'
 import LoanApply from '../screen/loan/LoanApply'
@@ -12,12 +13,16 @@ import UserBankCards from '../screen/user/UserBankCards'
 import UserAddCard from '../screen/user/UserAddCard'
 import LoanRepayment from '../screen/loan/LoanRepayment'
 import LoanAgreement from '../screen/loan/LoanAgreement'
+
 export default  SimpleApp = StackNavigator({
-    LoanApply:{
-        screen:LoanApply
+    Test:{
+      screen:Test
     },
     Home:{
       screen:Home
+    },
+    LoanApply:{
+        screen:LoanApply
     },
     UserSetting:{
         screen:UserSetting

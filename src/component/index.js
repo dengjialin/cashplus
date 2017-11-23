@@ -11,7 +11,8 @@ import {IFormItem,createForm} from './IFormItem'
 import {TabCellOpacity,TabCellUnderline} from './ScrollTabViewCell'
 import LoanRecordItem from './LoanRecordItem'
 import RefreshFlatList from './RefreshFlatList'
+import {IFlatList} from './PullFlatList'
 export {
     Item,IPickerItem,NavBar,IRefreshListView,IRefreshScrollView,IButton,ICard,PopupContent,VCode,createForm,IFormItem,VCodeImg,LoanRecordItem,
-    TabCellOpacity,TabCellUnderline,RefreshFlatList
+    TabCellOpacity,TabCellUnderline,RefreshFlatList,IFlatList
 }
