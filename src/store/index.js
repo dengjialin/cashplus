@@ -5,8 +5,9 @@ import relation from './relation'
 import personal from './personal'
 import avatar from './avatar'
 import loan from './loan'
-const store = {
-    home,relation,personal,avatar,user,loan
+import app from './app'
+export const store = {
+    home,relation,personal,avatar,user,loan,app
 }
 export default store
 //用于存储对应的store的wrapper组件

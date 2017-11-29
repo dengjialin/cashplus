@@ -1,6 +1,6 @@
 import {observable, action, reaction, runInAction} from 'mobx'
 import {getUserAvatar,uploadUserImg,submitUserAvatar} from '../service/user/user.base.service'
-import app from '../common/HttpTools'
+import {alertMsg} from '../common/Tools'
 class Avatar {
     @observable form = {
         name: {
@@ -52,10 +52,10 @@ class Avatar {
     }
     async submit(){
         if(!this.data.nameAndIdCardCanEdit||!this.data.photoCanEdit){
-            return app.sendMessage('不允许修改')
+            return alertMsg('不允许修改')
         }
         if(this.idSelf.url===''||this.idFront.url===''){
-            return app.sendMessage('请上传图片')
+            return alertMsg('请上传图片')
         }
         let img1 = {
             file:{
@@ -82,7 +82,7 @@ class Avatar {
             };
             let res = await submitUserAvatar(data)
             if(res.success){
-                app.sendMessage('提交个人信息成功')
+                alertMsg('提交个人信息成功')
                 return true
             }
         })

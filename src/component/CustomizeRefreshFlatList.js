@@ -51,6 +51,7 @@ export default class RefreshView extends PureComponent{
         });
     }
     onShouldSetPanResponder = (e, gesture) => {
+
         let y = 0
         if (this.scroll instanceof ListView) { //ListView下的判断
             y = this.scroll.scrollProperties.offset;
@@ -179,7 +180,13 @@ export default class RefreshView extends PureComponent{
     }
 
     render(){
-        return             <View style={ this.props.contentStyle || styles.wrap} {...this.panResponder.panHandlers} onLayout={this.onLayout}>
+        return             <View
+            style={ [this.props.contentStyle || styles.wrap,
+            {
+                flexGrow: 1,
+                zIndex: -999,
+            }]
+            } {...this.panResponder.panHandlers} onLayout={this.onLayout}>
 
             {this.props.isContentScroll ?
                 <View pointerEvents='box-none'>
@@ -244,8 +251,6 @@ export default class RefreshView extends PureComponent{
 const styles = StyleSheet.create({
     wrap: {
         flex: 1,
-        flexGrow: 1,
-        zIndex: -999,
     },
     hide: {
         position: 'absolute',

@@ -1,8 +1,11 @@
+/**
+ * Created by yueshengyu on 2017/11/28.
+ */
 import React, {PureComponent} from 'react'
 import {View, Text, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Dimensions} from 'react-native'
 
 export const RefreshState = {
-    Idle: 0,
+    Init: 0,
     HeaderRefreshing: 1,
     FooterRefreshing: 2,
     NoMoreData: 3,
@@ -28,7 +31,7 @@ type Props = {
 
 type State = {}
 
-class RefreshListView extends PureComponent {
+export class RefreshFlatList extends PureComponent {
     props: Props
     static refreshState = {
         Init: 0,
@@ -40,7 +43,7 @@ class RefreshListView extends PureComponent {
     constructor(props){
         super(props)
         this.state = {
-            refreshState:0
+            refreshState:RefreshState.Init
         }
     }
     componentWillReceiveProps(nextProps: Props) {
@@ -53,12 +56,16 @@ class RefreshListView extends PureComponent {
 
     onHeaderRefresh = () => {
         log('[RefreshListView]  onHeaderRefresh')
-        this.setState({
-            refreshState:1
-        })
         if (this.shouldStartHeaderRefreshing()) {
             log('[RefreshListView]  onHeaderRefresh')
-            this.props.onHeaderRefresh(()=>this.setState({refreshState:0}))
+            this.setState({
+                refreshState:RefreshState.HeaderRefreshing
+            },()=>{
+                this.props.onHeaderRefresh()
+            })
+            window.setTimeout(()=>{
+                this.setState({refreshState:RefreshState.Init})
+            },1000)
         }
     }
 
@@ -69,8 +76,15 @@ class RefreshListView extends PureComponent {
             log('[RefreshListView]  onFooterRefresh')
             this.setState({
                 refreshState:2
+            },()=>{
+                this.props.onFooterRefresh && this.props.onFooterRefresh((hasNext)=>{
+                    if(hasNext){
+                        this.setState({refreshState:RefreshState.Init})
+                    }else {
+                        this.setState({refreshState:RefreshState.NoMoreData})
+                    }
+                })
             })
-            this.props.onFooterRefresh && this.props.onFooterRefresh(()=>this.setState({refreshState:0}),()=>this.setState({refreshState:3}))
         }
     }
 
@@ -89,11 +103,13 @@ class RefreshListView extends PureComponent {
         log('[RefreshListView]  shouldStartFooterRefreshing')
 
         let {data} = this.props
-        if (data.length == 0) {
+        if (data.length === 0) {
             return false
+        }else if([RefreshState.FooterRefreshing,RefreshState.NoMoreData].includes(this.state.refreshState)){
+            return false;
         }
 
-        return (this.state.refreshState === RefreshState.Idle)
+        return true;
     }
 
     render() {
@@ -115,17 +131,16 @@ class RefreshListView extends PureComponent {
 
         let footerContainerStyle = [styles.footerContainer, this.props.footerContainerStyle]
         let footerTextStyle = [styles.footerText, this.props.footerTextStyle]
+
         switch (this.state.refreshState) {
-            case RefreshState.Idle:
+            case RefreshState.Init:
                 footer = (<View style={footerContainerStyle} />)
                 break
             case RefreshState.Failure: {
                 footer = (
                     <TouchableOpacity
                         style={footerContainerStyle}
-                        onPress={() => {
-                            this.props.onFooterRefresh && this.props.onFooterRefresh(RefreshState.FooterRefreshing)
-                        }}
+                        onPress={this.onEndReached.bind(this)}
                     >
                         <Text style={footerTextStyle}>{footerFailureText}</Text>
                     </TouchableOpacity>
@@ -151,7 +166,10 @@ class RefreshListView extends PureComponent {
             }
         }
 
-        return footer
+        return <View style={{flex:1}}>
+            {this.props.renderFooter&&this.props.renderFooter()}
+            {footer}
+        </View>
     }
 }
 
@@ -169,5 +187,3 @@ const styles = StyleSheet.create({
         color: '#555555'
     }
 })
-
-export default RefreshListView

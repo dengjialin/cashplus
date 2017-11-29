@@ -1,3 +1,4 @@
+import {Alert} from 'react-native'
 /**
  * 时间转换
  * @param dateTime
@@ -26,6 +27,12 @@ const cleanString = function (str) {
         return str.replace(/\s/g,'').trim()
     }
 }
+const alertMsg = function (msg,buttons=[],title='提示',) {
+    if (!msg) {
+        return false;
+    }
+    Alert.alert(title,msg,buttons);
+}
 export {
-    dateFormat,cleanString
+    dateFormat,cleanString,alertMsg
 }
